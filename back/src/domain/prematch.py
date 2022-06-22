@@ -33,8 +33,8 @@ def get_total_hours_for_interviews(first_recruiter):
 #generar en base a los horarios totales
 def generate_matrix(recruiter_list,hours):
     matrix=[]    
-    for recruiter in recruiter_list:
-        for hour in hours:
+    for hour in hours:
+        for recruiter in recruiter_list:
             matrix.append({"EMPRESA": recruiter['EMPRESA'],"NOMBRE DEL RECRUITER":recruiter["NOMBRE DEL RECRUITER"],"HORARIO":hour})
     return matrix
 
@@ -99,7 +99,7 @@ def match_students(matrix,student_list):
     for row in matrix:
         if "ESTUDIANTE" in row.keys():      #tiene estudiante asignado?
                 continue
-        # shuffle(student_list)
+        shuffle(student_list)
         for student in student_list:
             student_name=student["NOMBRE Y APELLIDOS"]
             if (check_coincidence(row,student)):
