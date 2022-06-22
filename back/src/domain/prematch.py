@@ -38,7 +38,7 @@ def generate_matrix(recruiter_list,hours):
             matrix.append({"EMPRESA": recruiter['EMPRESA'],"NOMBRE DEL RECRUITER":recruiter["NOMBRE DEL RECRUITER"],"HORARIO":hour})
     return matrix
 
-#Matriz-->[NOMBRE DEL RECRUITER,HOUR]
+
 def fill_recruiter_no_available_spaces(matrix,recruiter_list):
     for recruiter in recruiter_list:
         for slot in matrix:
@@ -52,9 +52,9 @@ def fill_recruiter_no_available_spaces(matrix,recruiter_list):
 
 
 #Matriz-->{"EMPRESA": recruiter['EMPRESA'],"NOMBRE DEL RECRUITER":recruiter["NOMBRE DEL RECRUITER"],"HORARIO":hour}
-
 # forced=['Merkatu','10:10','Perla']
-def fill_matrix_with_forced_positions(matrix,forced_positions): #evaluar esto 1
+
+def fill_matrix_with_forced_positions(matrix,forced_positions): 
     for row in matrix:
         for pos in forced_positions:
             company_name=pos[0]

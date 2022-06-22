@@ -6,14 +6,7 @@ from src.lib.utils import object_to_json
 from src.domain.students import get_student_list
 from src.domain.recruiter import get_recruiter_list
 from src.domain.prematch import *
-from main import *
 
-
-
-
-
-# forced_positions=[['BIO-Merkatu (Grupo Teknei)','10:10','Perla'],['Merkatu','11:00','Ainara'],
-#                   ['Ibermatica','11:00','DESCANSO'],['Merkatu','10:20','Ainara']]
 
 def create_app(repositories):
     app = Flask(__name__)
@@ -34,7 +27,6 @@ def create_app(repositories):
         student_list=get_student_list(students)
         recruiter_list=get_recruiter_list(recruiters_copy)
         hours=get_total_hours_for_interviews(recruiters_copy[0])
-        # print('hours',hours)
 
         coincidences_st_rec_st_list=fill_skills_and_recruiters_in_students(recruiter_list,student_list)
         matrix=generate_matrix(recruiter_list,hours)
@@ -51,7 +43,6 @@ def create_app(repositories):
         matrix_filled=match_students(matrix_no_available_hours,coincidences_st_rec_st_list)
 
         matrix_final=fill_empties(matrix_filled)
-        # print(matrix_final)
         final_json=fill_data_to_json(matrix_final,recruiters_orig)
         
         return jsonify(final_json), 200
