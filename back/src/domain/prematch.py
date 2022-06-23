@@ -122,7 +122,7 @@ def fill_empties(matrix):
 
 
 
-def fill_data_to_json(matrix,recruiter_list):
+def fill_data_to_recruiter_list(matrix,recruiter_list):
     for recruiter in recruiter_list:
         for slot in matrix:
             if recruiter["NOMBRE DEL RECRUITER"]==slot["NOMBRE DEL RECRUITER"]:

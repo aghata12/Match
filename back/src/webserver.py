@@ -43,7 +43,7 @@ def create_app(repositories):
         matrix_filled=match_students(matrix_no_available_hours,coincidences_st_rec_st_list)
 
         matrix_final=fill_empties(matrix_filled)
-        final_json=fill_data_to_json(matrix_final,recruiters_orig)
+        final_json=fill_data_to_recruiter_list(matrix_final,recruiters_orig)
         
         return jsonify(final_json), 200
 
