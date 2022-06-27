@@ -1,4 +1,4 @@
-# from data import *
+
 def convert_locations(student):
     locations=[]
     for key, value in student.items():

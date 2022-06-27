@@ -1,20 +1,23 @@
 from src.domain.students import get_student_list
 from src.domain.recruiter import get_recruiter_list
 from src.domain.prematch import *
-# from data import recruiters_orig
+from test.prematch.setup_rec_st import coders,recruiters
 
 
 
 
 def main():
-    #de algun data obtener recruiters original (antes de procesar)
+    recruiters_orig=recruiters
+    recruiters_copy=recruiters_orig[:]
+    students=coders
     forced_positions=[['Merkatu','10:10','Perla'],['Merkatu','11:00','Ainara'],
                       ['Ibermatica','11:00','DESCANSO'],['Merkatu','10:20','Ainara']]
-    student_list=get_student_list()
-    recruiter_list=get_recruiter_list()
-    
+    student_list=get_student_list(students)
+    recruiter_list=get_recruiter_list(recruiters_copy)
     student_list=fill_skills_and_recruiters_in_students(recruiter_list,student_list)
-    hours=get_total_hours_for_interviews(recruiter_list[0])
+    
+    hours=get_total_hours_for_interviews(recruiters_copy[0])
+    print('student',hours)
 
     matrix=generate_matrix(recruiter_list,hours)
 
@@ -29,7 +32,7 @@ def main():
     matrix_final=fill_empties(matrix_filled)
     
     #obtener dato de recruiters original de data!
-    final_json=fill_data_to_json(matrix_final,recruiters_orig)
+    final_json=fill_data_to_recruiter_list(matrix_final,recruiters_orig)
     print(final_json)
 
 if __name__=="__main__":

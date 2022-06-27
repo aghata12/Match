@@ -30,8 +30,8 @@ def get_recruiter_list(recruiters):
         locations=convert_locations(recruiter)
         skills=convert_skills(recruiter)
         hours=convert_hours(recruiter)
-        to_add={
-            "EMPRESA": recruiter['EMPRESA'],
+        rec_company_formatted=(recruiter['EMPRESA']).rstrip()
+        to_add={"EMPRESA": rec_company_formatted,
             "NOMBRE DEL RECRUITER": recruiter['NOMBRE DEL RECRUITER'],
             "EMAIL": recruiter["EMAIL"],
             "CARGO": recruiter["CARGO"],

@@ -51,7 +51,7 @@ def fill_recruiter_no_available_spaces(matrix,recruiter_list):
     return matrix
 
 
-#Matriz-->{"EMPRESA": recruiter['EMPRESA'],"NOMBRE DEL RECRUITER":recruiter["NOMBRE DEL RECRUITER"],"HORARIO":hour}
+#{"EMPRESA": recruiter['EMPRESA'],"NOMBRE DEL RECRUITER":recruiter["NOMBRE DEL RECRUITER"],"HORARIO":hour}
 # forced=['Merkatu','10:10','Perla']
 
 def fill_matrix_with_forced_positions(matrix,forced_positions): 
@@ -67,10 +67,9 @@ def fill_matrix_with_forced_positions(matrix,forced_positions):
     return matrix
 
 
-# [['Merkatu','10.10','Perla'],['Merkatu','11.00','Ainara'],
-#                   ['Ibermatica','11.00','DESCANSO'],['Merkatu','10.20','Ainara']]
-
+# [['Merkatu','10.10','Perla'],['Ibermatica','11.00','DESCANSO']]
 #Actualiza los estudiantes con la informacion de las posiciones forzadas
+
 def forced_matches(matches,student_list): #evaluar esto 2
     for position in matches:
         for stud in student_list:
@@ -97,7 +96,7 @@ def check_coincidence(recruiter,student):
 #itera sobre la matriz y va llenando los huecos si hay compatibilidad.
 def match_students(matrix,student_list):
     for row in matrix:
-        if "ESTUDIANTE" in row.keys():      #tiene estudiante asignado?
+        if "ESTUDIANTE" in row.keys():      
                 continue
         shuffle(student_list)
         for student in student_list:
