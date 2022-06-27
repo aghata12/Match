@@ -35,9 +35,8 @@ def create_app(repositories):
         # rellena matriz con las posiciones forzadas
         #matrix_prefilled=fill_matrix_with_forced_positions(matrix_no_available_hours,forced_positions)
 
-        # en student_list rellena los horarios y empresa con que se vio el estudiante de los forzados
+        # en student_list rellena los horarios y empresa con los forzados
         #student_list_blocked_hours=forced_matches(forced_positions,coincidences_st_rec_st_list)
-        #--------------------------------------------------
         # matrix_filled=match_students(matrix_prefilled,student_list_blocked_hours)
         #--------------------------------------------------
         matrix_filled=match_students(matrix_no_available_hours,coincidences_st_rec_st_list)
