@@ -110,7 +110,7 @@ def test_should_generate_just_one_interview_with_same_company_differ_whitespaces
                 "10:20": "x",
                 "10:30": "x"}]
 
-    expected=[{"EMPRESA": "Claire Joster (Grupo Eurofirms) ", 
+    expected=[{"EMPRESA": "Claire Joster (Grupo Eurofirms)", 
                 "NOMBRE DEL RECRUITER": "María Pilar BALLESTAR GALCRÁ",
                 "EMAIL": "",
                 "CARGO": "IT Consultant",

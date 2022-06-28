@@ -1,6 +1,10 @@
 # from data import *
 import re
 
+def format_recruiter(recruiters_list):
+    for recruiter in recruiters_list:
+        recruiter['EMPRESA']=(recruiter['EMPRESA']).rstrip()
+    return recruiters_list
 
 def convert_locations(recruiter):
     locations=[]
@@ -24,14 +28,14 @@ def convert_hours(recruiter):
                 hours.append(key)
     return hours
 
+
 def get_recruiter_list(recruiters):
     recruiter_list=[]
     for recruiter in recruiters:
         locations=convert_locations(recruiter)
         skills=convert_skills(recruiter)
         hours=convert_hours(recruiter)
-        rec_company_formatted=(recruiter['EMPRESA']).rstrip()
-        to_add={"EMPRESA": rec_company_formatted,
+        to_add={"EMPRESA": recruiter['EMPRESA'],
             "NOMBRE DEL RECRUITER": recruiter['NOMBRE DEL RECRUITER'],
             "EMAIL": recruiter["EMAIL"],
             "CARGO": recruiter["CARGO"],

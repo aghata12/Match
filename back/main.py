@@ -1,5 +1,5 @@
 from src.domain.students import get_student_list
-from src.domain.recruiter import get_recruiter_list
+from src.domain.recruiter import format_recruiter, get_recruiter_list
 from src.domain.prematch import *
 from test.prematch.setup_rec_st import coders,recruiters
 
@@ -7,7 +7,8 @@ from test.prematch.setup_rec_st import coders,recruiters
 
 
 def main():
-    recruiters_orig=recruiters
+    recruiters_origen=recruiters
+    recruiters_orig= format_recruiter(recruiters_origen)
     recruiters_copy=recruiters_orig[:]
     students=coders
     forced_positions=[['Merkatu','10:10','Perla'],['Merkatu','11:00','Ainara'],

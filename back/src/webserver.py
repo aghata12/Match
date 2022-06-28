@@ -4,7 +4,7 @@ from flask_cors import CORS
 from src.lib.utils import object_to_json
 
 from src.domain.students import get_student_list
-from src.domain.recruiter import get_recruiter_list
+from src.domain.recruiter import get_recruiter_list, format_recruiter
 from src.domain.prematch import *
 
 
@@ -24,7 +24,8 @@ def create_app(repositories):
             return jsonify({"error":"Entrada incorrecta"}), 400
         else:
             students = body["CODERS"]
-            recruiters_orig = body["RECRUITERS"]
+            recruiters_origen = body["RECRUITERS"]
+            recruiters_orig= format_recruiter(recruiters_origen)
             recruiters_copy=recruiters_orig[:]
             
             student_list=get_student_list(students)
