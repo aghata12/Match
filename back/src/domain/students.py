@@ -30,6 +30,3 @@ def get_student_list(students):
         }
         student_list.append(to_add)
     return student_list
-
-
-# print(get_student_list())

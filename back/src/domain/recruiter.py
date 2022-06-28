@@ -1,4 +1,3 @@
-# from data import *
 import re
 
 def format_recruiter(recruiters_list):
@@ -45,7 +44,6 @@ def get_recruiter_list(recruiters):
             "HOURS_DISP":hours
         }
         recruiter_list.append(to_add)
-    # print(recruiter_list)
     return recruiter_list
 
 

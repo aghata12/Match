@@ -18,7 +18,7 @@ def fill_skills_and_recruiters_in_students(recruiter_list,student_list):
             rec_skills=recruiter["SKILLS"]
             stud_locations=student["LOCATIONS"]
             stud_skills=student["SKILLS"]
-            if coincidences(stud_locations,rec_locations) and coincidences(stud_skills,rec_skills): #and coincidences(stud_skills,rec_skills) //cambiado lo de skills 
+            if coincidences(stud_locations,rec_locations) and coincidences(stud_skills,rec_skills): 
                 student["PMATCH"].append(recruiter['NOMBRE DEL RECRUITER'])
     return student_list
 
@@ -30,7 +30,6 @@ def get_total_hours_for_interviews(first_recruiter):
     return hours
 
 
-#generar en base a los horarios totales
 def generate_matrix(recruiter_list,hours):
     matrix=[]    
     for hour in hours:
@@ -60,17 +59,15 @@ def fill_matrix_with_forced_positions(matrix,forced_positions):
             company_name=pos[0]
             hour=pos[1]
             st_name=pos[2]
-            if not "ESTUDIANTE" in row.keys():     #si no tiene estudiante asignado
+            if not "ESTUDIANTE" in row.keys():
                 if company_name==row["EMPRESA"]:
                     if hour==row["HORARIO"]:
                         row["ESTUDIANTE"]=st_name
     return matrix
 
 
-# [['Merkatu','10.10','Perla'],['Ibermatica','11.00','DESCANSO']]
 #Actualiza los estudiantes con la informacion de las posiciones forzadas
-
-def forced_matches(matches,student_list): #evaluar esto 2
+def forced_matches(matches,student_list):
     for position in matches:
         for stud in student_list:
             if position[2]==stud["NOMBRE Y APELLIDOS"]:
